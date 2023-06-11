@@ -150,7 +150,7 @@ namespace StudentsRM.Service.Implementation
 
             var course = _unitOfWork.Courses.Get(courseId);
             course.Name = update.Name;
-            course.ModifiedBy = "Admin";
+            // course.ModifiedBy = "Admin";
 
             try
             {

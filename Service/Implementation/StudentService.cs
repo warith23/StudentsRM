@@ -27,7 +27,7 @@ namespace StudentsRM.Service.Implementation
                 Gender = request.Gender,
                 HomeAddress = request.HomeAddress,
                 // RegisteredBy = "Admin",
-                DateCreated = DateTime.Today,
+                // DateCreated = DateTime.Today,
                 // Courses = new List<Course>()
             };
 

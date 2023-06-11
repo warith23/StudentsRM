@@ -31,7 +31,7 @@ namespace StudentsRM.Service.Implementation
                 Gender = request.Gender,
                 HomeAddress = request.HomeAddress,
                 // RegisteredBy = "Admin",
-                DateCreated = DateTime.Today,
+                // DateCreated = DateTime.Today,
                 Course = selectCourse,
                 CourseId = selectCourse.Id
             };
