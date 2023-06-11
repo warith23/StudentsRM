@@ -1,0 +1,45 @@
+@model List<StudentsRM.Models.Student.StudentViewModel>
+@{
+    ViewData["Title"] = "Student List";
+    int count = 1;
+}
+
+<div>
+    <a asp-controller="Student" asp-action="Create" class="btn btn-outline-primary">Register Student</a>
+</div>
+
+@* @await Html.PartialAsync("_ListAlert", Model) *@
+
+@if (Model is not null)
+{
+    <table class="table" >
+        <thead>
+            <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Course</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">HomeAddress</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="row">@count</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.MiddleName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Course</td>
+                    <td>@item.Gender</td>
+                    <td>@item.Email</td>
+                    <td>@item.HomeAddress</td>
+                </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+}

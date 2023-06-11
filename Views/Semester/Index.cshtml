@@ -1,0 +1,40 @@
+@model List<StudentsRM.Models.Semester.SemesterViewModel>
+
+@{
+    ViewData["Title"] = "Semester List";
+    int count = 1;
+}
+
+<div>
+    <a asp-controller="Semester" asp-action="Create" class="btn btn-outline-primary">Add New Semester</a>
+</div>
+
+@* @await Html.PartialAsync("_ListAlert", Model) *@
+
+@if (Model is not null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Semester Name</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.SemesterName</td>
+                    <td>@item.StartDate</td>
+                    <td>@item.EndDate</td>
+                </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+}

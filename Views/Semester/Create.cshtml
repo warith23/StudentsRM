@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Create New Semester";
+}
+
+@model StudentsRM.Models.Semester.CreateSemesterViewModel
+
+<div class="body">
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div class="col-md-12 mb-2">
+                    <label for="SemesterName" class="form-label">Semester Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Semester name" asp-for="SemesterName">
+                    <span asp-validation-for="SemesterName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label for="EndDate" class="form-label">End Date:</label>
+                    <input type="date" class="form-control" placeholder="Enter End Date" asp-for="EndDate">
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label for="EndDate" class="form-label">End Date:</label>
+                    <input type="date" class="form-control" placeholder="Enter End Date" asp-for="EndDate">
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Create Semester</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

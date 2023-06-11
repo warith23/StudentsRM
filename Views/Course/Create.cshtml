@@ -1,0 +1,26 @@
+@model StudentsRM.Models.Course.CreateCourseModel
+@{
+    ViewData["Title"] = "Register Course";
+}
+
+<div class="body">
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Course Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Course name" asp-for="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Create Course</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
