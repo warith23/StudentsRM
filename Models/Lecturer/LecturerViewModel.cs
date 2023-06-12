@@ -1,3 +1,5 @@
+
+
 namespace StudentsRM.Models.Lecturer
 {
     public class LecturerViewModel
