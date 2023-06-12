@@ -17,37 +17,43 @@
             <form asp-action="Create">
                 <div class="col-md-12 mb-2">
                     <label class="form-label">FirstName:</label>
-                    <textarea class="form-control" placeholder="Enter your FirstName" asp-for="FirstName"></textarea>
+                    <input type="text" class="form-control" placeholder="Enter your FirstName" asp-for="FirstName">
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-12 mb-2">
                     <label class="form-label">MiddleName:</label>
-                    <textarea class="form-control" placeholder="Enter your MiddleName" asp-for="MiddleName"></textarea>
+                    <input type="text" class="form-control" placeholder="Enter your MiddleName" asp-for="MiddleName">
                     <span asp-validation-for="MiddleName" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-12 mb-2">
                     <label class="form-label">LastName:</label>
-                    <textarea class="form-control" placeholder="Enter your LastName" asp-for="LastName"></textarea>
+                    <input type="text" class="form-control" placeholder="Enter your LastName" asp-for="LastName">
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-12 mb-2">
                     <label class="form-label">Email:</label>
-                    <textarea class="form-control" placeholder="Enter your Email" asp-for="Email"></textarea>
+                    <input type="text" class="form-control" placeholder="Enter your Email" asp-for="Email">
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-12 mb-2">
                     <label class="form-label">Gender:</label>
-                    <textarea class="form-control" placeholder="Enter your Gender" asp-for="Gender"></textarea>
+                    <input type="text" class="form-control" placeholder="Enter your Gender" asp-for="Gender">
                     <span asp-validation-for="Gender" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-12 mb-2">
-                    <label class="form-label">HomeAddress:</label>
-                    <textarea class="form-control" placeholder="Enter your HomeAddress" asp-for="HomeAddress"></textarea>
+                    <label class="form-label">Phone Number:</label>
+                    <input type="text" class="form-control" placeholder="Enter your Phone Number" asp-for="PhoneNumber">
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Home Address:</label>
+                    <input type="text" class="form-control" placeholder="Enter your HomeAddress" asp-for="HomeAddress">
                     <span asp-validation-for="HomeAddress" class="text-danger"></span>
                 </div>
 

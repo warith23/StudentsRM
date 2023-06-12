@@ -5,14 +5,17 @@
 }
 
 <div>
-    <a asp-controller="Lecturer" asp-action="Create" class="btn btn-outline-primary">Register Lecturer</a>
+    <a asp-controller="Lecturer" asp-action="Create" class="btn btn-outline-primary">Register Student</a>
 </div>
 
 @* @await Html.PartialAsync("_ListAlert", Model) *@
 
-@if (Model is not null)
+@* @if (Model is not null)
 {
-    <table class="table" >
+    
+} *@
+
+<table class="table" >
         <thead>
             <tr>
                 <th scope="col">S/N</th>
@@ -42,4 +45,3 @@
             }
         </tbody>
     </table>
-}

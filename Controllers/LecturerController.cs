@@ -21,7 +21,7 @@ namespace StudentsRM.Controllers
             var response = _lecturerService.GetAll();
             ViewData["Messsage"] = response.Message;
             ViewData["Status"] = response.Status;
-            return View();
+            return View(response.Data);
         }
          
         public IActionResult Create()

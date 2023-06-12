@@ -1,6 +1,6 @@
 namespace StudentsRM.Entities
 {
-    public class StudentCourse
+    public class StudentCourse : BaseEntity
     {
         public string CourseId { get; set; }
         public Course Course { get; set; }

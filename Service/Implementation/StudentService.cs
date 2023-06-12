@@ -26,7 +26,9 @@ namespace StudentsRM.Service.Implementation
                 Email = request.Email,
                 Gender = request.Gender,
                 HomeAddress = request.HomeAddress,
+                PhoneNumber = request.PhoneNumber,
                 RegisteredBy = "Admin",
+                DateAdmitted = DateTime.Today
                 // DateCreated = DateTime.Today,
             };
 
@@ -45,7 +47,8 @@ namespace StudentsRM.Service.Implementation
                     CourseId = course.Id,
                     StudentId = student.Id,
                     Course = course,
-                    Student = student
+                    Student = student,
+                    RegisteredBy = "Admin"
                 };
                 studentCourses.Add(studentCourse);
             }
@@ -90,9 +93,12 @@ namespace StudentsRM.Service.Implementation
                     students => new StudentViewModel
                     {
                         FirstName = students.FirstName,
+                        MiddleName = students.MiddleName,
                         LastName = students.LastName,
                         HomeAddress = students.HomeAddress,
                         DateAdmitted = students.DateAdmitted,
+                        Gender = students.Gender,
+                        Email = students.Email
                     }).ToList();
             }
             catch (Exception ex)

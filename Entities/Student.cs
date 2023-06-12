@@ -15,7 +15,6 @@ namespace StudentsRM.Entities
         public string HomeAddress { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime DateAdmitted { get; set; }
-        public string CourseId { get; set; }
         public ICollection<StudentCourse> Courses { get; set; } = new HashSet<StudentCourse>();
         public ICollection<Result> Results { get; set; } = new HashSet<Result>();
     }

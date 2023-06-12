@@ -29,6 +29,7 @@ namespace StudentsRM.Service.Implementation
                 LastName = request.LastName,
                 Email = request.Email,
                 Gender = request.Gender,
+                PhoneNumber = request.PhoneNumber,
                 HomeAddress = request.HomeAddress,
                 RegisteredBy = "Admin",
                 // DateCreated = DateTime.Today,
@@ -97,10 +98,11 @@ namespace StudentsRM.Service.Implementation
                 response.Data = lecturers.Select(
                     lecturers => new LecturerViewModel
                     {
-                        Id = lecturers.Id,
                         FirstName = lecturers.FirstName,
                         LastName = lecturers.LastName,
                         Course = lecturers.Course.Name,
+                        Gender = lecturers.Gender,
+                        Email = lecturers.Email,
                         PhoneNumber = lecturers.PhoneNumber,
                         HomeAddress = lecturers.HomeAddress
                     }).ToList();
