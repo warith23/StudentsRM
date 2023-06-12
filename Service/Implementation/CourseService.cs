@@ -29,7 +29,7 @@ namespace StudentsRM.Service.Implementation
             var course = new Course
             {
                 Name = request.Name,
-                // RegisteredBy = "Admin"
+                RegisteredBy = "Admin"
             };
 
             try

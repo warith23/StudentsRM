@@ -30,7 +30,7 @@ namespace StudentsRM.Service.Implementation
                 Email = request.Email,
                 Gender = request.Gender,
                 HomeAddress = request.HomeAddress,
-                // RegisteredBy = "Admin",
+                RegisteredBy = "Admin",
                 // DateCreated = DateTime.Today,
                 Course = selectCourse,
                 CourseId = selectCourse.Id

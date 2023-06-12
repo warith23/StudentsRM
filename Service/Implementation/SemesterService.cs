@@ -23,7 +23,8 @@ namespace StudentsRM.Service.Implementation
             {
                 SemesterName = request.SemesterName,
                 StartDate = request.StartDate,
-                EndDate = request.EndDate
+                EndDate = request.EndDate,
+                RegisteredBy = "Admin"
             };
 
             try

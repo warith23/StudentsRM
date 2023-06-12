@@ -26,9 +26,8 @@ namespace StudentsRM.Service.Implementation
                 Email = request.Email,
                 Gender = request.Gender,
                 HomeAddress = request.HomeAddress,
-                // RegisteredBy = "Admin",
+                RegisteredBy = "Admin",
                 // DateCreated = DateTime.Today,
-                // Courses = new List<Course>()
             };
 
             // var user = new User()
@@ -37,17 +36,20 @@ namespace StudentsRM.Service.Implementation
             //     Password = "12345",
             // };
             
-            var selectCourses = _unitOfWork.Courses.GetAllByIds(request.CourseIds);
-            var courses = new HashSet<Course>();
-            foreach (var selectCourse in selectCourses)
+            var Courses = _unitOfWork.Courses.GetAllByIds(request.CourseIds);
+            var studentCourses = new HashSet<StudentCourse>();
+            foreach (var course in Courses)
             {
-                var course = new Course
+                var studentCourse = new StudentCourse
                 {
-                    Id = selectCourse.Id,
+                    CourseId = course.Id,
+                    StudentId = student.Id,
+                    Course = course,
+                    Student = student
                 };
-                courses.Add(course);
+                studentCourses.Add(studentCourse);
             }
-            student.Courses = courses;
+            student.Courses = studentCourses;
             
             try
             {

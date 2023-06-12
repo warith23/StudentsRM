@@ -16,7 +16,7 @@ namespace StudentsRM.Entities
         public string PhoneNumber { get; set; }
         public DateTime DateAdmitted { get; set; }
         public string CourseId { get; set; }
-        public ICollection<Course> Courses { get; set; } = new HashSet<Course>();
-         public ICollection<Result> Results { get; set; } = new HashSet<Result>();
+        public ICollection<StudentCourse> Courses { get; set; } = new HashSet<StudentCourse>();
+        public ICollection<Result> Results { get; set; } = new HashSet<Result>();
     }
 }

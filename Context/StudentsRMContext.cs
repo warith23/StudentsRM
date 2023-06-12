@@ -44,6 +44,7 @@ namespace StudentsRM.Context
         public DbSet<Role> Roles { get; set; }
         public DbSet<Lecturer> Lecturers { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<StudentCourse> StudentsCourses { get; set; }
         public DbSet<Semester> Semesters { get; set; }
         public DbSet<Result> Results { get; set; }
     }

@@ -1,0 +1,67 @@
+@model StudentsRM.Models.Lecturer.CreateLecturerModel
+
+@{
+    ViewData["Title"] = "Create A Email";
+}
+
+@* @section Styles {
+    @{
+        await Html.RenderPartialAsync("_Select2CssPartial");
+    }
+} *@
+
+<div class="body">
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">FirstName:</label>
+                    <textarea class="form-control" placeholder="Enter your FirstName" asp-for="FirstName"></textarea>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">MiddleName:</label>
+                    <textarea class="form-control" placeholder="Enter your MiddleName" asp-for="MiddleName"></textarea>
+                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">LastName:</label>
+                    <textarea class="form-control" placeholder="Enter your LastName" asp-for="LastName"></textarea>
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Email:</label>
+                    <textarea class="form-control" placeholder="Enter your Email" asp-for="Email"></textarea>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Gender:</label>
+                    <textarea class="form-control" placeholder="Enter your Gender" asp-for="Gender"></textarea>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">HomeAddress:</label>
+                    <textarea class="form-control" placeholder="Enter your HomeAddress" asp-for="HomeAddress"></textarea>
+                    <span asp-validation-for="HomeAddress" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Course:</label>
+                    <select asp-for="CourseId" class="form-control" asp-items="@ViewBag.Courses" data-placeholder="Select Categories" >
+                    </select>
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
