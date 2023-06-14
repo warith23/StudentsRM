@@ -6,6 +6,8 @@ using StudentsRM.Service.Interface;
 using StudentsRM.Service.Implementation;
 using AspNetCoreHero.ToastNotification;
 using AspNetCoreHero.ToastNotification.Extensions;
+using lecturersRM.Service.Implementation;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +18,9 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<ILecturerRepository, LecturerRepository>();
 builder.Services.AddScoped<ILecturerService, LecturerService>();
 builder.Services.AddScoped<IResultRepository, ResultRepository>();
-// builder.Services.AddScoped<IResultService, Resu>
+builder.Services.AddScoped<IResultService, ResultService>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
-// builder.Services.AddScoped<>
+builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<ISemesterRepository, SemesterRepository>();
 builder.Services.AddScoped<ISemesterService, SemesterService>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
@@ -34,9 +36,19 @@ builder.Services.AddNotyf(config =>
 });
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.AddDbContext<StudentsRMContext>(option =>
     option.UseMySQL(builder.Configuration.GetConnectionString("StudentsRmContext")));
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(config =>
+               {
+                   config.LoginPath = "/home/login";
+                   config.Cookie.Name = "StudentsResultManagement";
+                   config.ExpireTimeSpan = TimeSpan.FromDays(1);
+                   config.AccessDeniedPath = "/home/privacy";
+               });
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -52,12 +64,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseNotyf();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();

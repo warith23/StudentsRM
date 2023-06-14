@@ -116,8 +116,10 @@ namespace StudentsRM.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
                     Email = table.Column<string>(type: "longtext", nullable: false),
-                    Password = table.Column<string>(type: "longtext", nullable: false),
+                    HashSalt = table.Column<string>(type: "longtext", nullable: false),
+                    PasswordHash = table.Column<string>(type: "longtext", nullable: false),
                     RoleId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    CheckUserId = table.Column<string>(type: "longtext", nullable: false),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },

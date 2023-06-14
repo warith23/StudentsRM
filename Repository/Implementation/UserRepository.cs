@@ -1,6 +1,8 @@
 using StudentsRM.Entities;
 using StudentsRM.Repository.Interface;
 using StudentsRM.Context;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace StudentsRM.Repository.Implementation
 {
@@ -10,6 +12,12 @@ namespace StudentsRM.Repository.Implementation
         {
 
         }
-        
+
+        public User GetUser(Expression<Func<User, bool>> expression)
+        {
+            return _context.Users
+                .Include(x => x.Role)
+                .SingleOrDefault(expression);
+        }
     }
 }

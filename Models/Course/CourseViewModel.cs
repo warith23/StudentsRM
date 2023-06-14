@@ -1,5 +1,3 @@
-using StudentsRM.Entities;
-
 namespace StudentsRM.Models.Course
 {
     public class CourseViewModel

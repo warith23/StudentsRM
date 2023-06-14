@@ -46,5 +46,18 @@ namespace StudentsRM.Controllers
             ViewData["Message"] = response.Message;
             return RedirectToAction("Index");
         }
+
+        public IActionResult GetStudent(string id)
+        {
+            var response = _studentService.GetStudent(id);
+            if (response.Status is false)
+            {
+                ViewData["Message"] = response.Message;
+                return View();
+            }
+
+            ViewData["Message"] = response.Message;
+            return View(response.Data);
+        }
     }
 }

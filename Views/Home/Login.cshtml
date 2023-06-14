@@ -1,0 +1,24 @@
+@model StudentsRM.Models.Auth.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center">
+    <form asp-action="Login" class="row g-3">
+        <div class="col-md-12">
+            <label for="Email" class="form-label">Email:</label>
+            <input type="text" class="form-control" placeholder="Enter Email" asp-for="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-12">
+            <label for="Password" class="form-label">Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" asp-for="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

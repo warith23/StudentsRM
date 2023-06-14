@@ -1,32 +1,46 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using StudentsRM.Models.Role;
+using StudentsRM.Service.Interface;
 
 namespace StudentsRM.Controllers
 {
-    [Route("[controller]")]
+    // [Route("[controller]")]
     public class RoleController : Controller
     {
-        private readonly ILogger<RoleController> _logger;
+        private readonly IRoleService _roleService;
 
-        public RoleController(ILogger<RoleController> logger)
+        public RoleController(IRoleService roleService)
         {
-            _logger = logger;
+            _roleService = roleService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var response = _roleService.GetAll();
+            ViewData["Message"] = response.Message;
+            ViewData["Status"] = response.Status;
+
+            return View(response.Data);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Create()
         {
-            return View("Error!");
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Create(CreateRoleModel reqeust)
+        {
+            var response = _roleService.Create(reqeust);
+            if (response.Status is false)
+            {
+                //_notyf.Error(response.Message);
+                ViewData["Message"] = response.Message;
+                return View();
+            }
+
+            ViewData["Message"] = response.Message;
+            return RedirectToAction("Index", "role"); 
         }
     }
 }
