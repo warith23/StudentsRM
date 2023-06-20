@@ -122,5 +122,10 @@ namespace StudentsRM.Service.Implementation
         {
             throw new NotImplementedException();
         }
+
+         public BaseResponseModel Update(string RoleId, UpdateRoleViewModel update)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
