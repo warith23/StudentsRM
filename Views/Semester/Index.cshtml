@@ -32,6 +32,11 @@
                     <td>@item.SemesterName</td>
                     <td>@item.StartDate</td>
                     <td>@item.EndDate</td>
+                     <td>
+                        <form asp-controller="Semester" asp-action="DeleteSemester" asp-route-id="@item.Id" class="del-btn">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 count++;
             }

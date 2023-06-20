@@ -1,9 +1,10 @@
 using StudentsRM.Models.Course;
 
-namespace StudentsRM.Models.Student
+namespace StudentsRM.Models.Students
 {
-    public class CreateStudentModel
+    public class UpdateStudentViewModel
     {
+        public string Id { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
@@ -13,7 +14,6 @@ namespace StudentsRM.Models.Student
         public string HomeAddress { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime DateAdmitted { get; set; }
-        public List<string> CourseIds { get; set; }
-        public List<CourseViewModel> Courses { get; set; }
+        public string CourseId { get; set; }
     }
 }

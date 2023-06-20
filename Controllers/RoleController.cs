@@ -1,17 +1,21 @@
+using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudentsRM.Models.Role;
 using StudentsRM.Service.Interface;
 
 namespace StudentsRM.Controllers
 {
-    // [Route("[controller]")]
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private readonly IRoleService _roleService;
+        private readonly INotyfService _notyf;
 
-        public RoleController(IRoleService roleService)
+        public RoleController(IRoleService roleService, INotyfService notyf)
         {
             _roleService = roleService;
+            _notyf = notyf;
         }
 
         public IActionResult Index()
@@ -41,6 +45,22 @@ namespace StudentsRM.Controllers
 
             ViewData["Message"] = response.Message;
             return RedirectToAction("Index", "role"); 
+        }
+
+        [HttpPost]
+        public IActionResult DeleteRole(string id)
+        {
+            var response = _roleService.Delete(id);
+
+            if (response.Status is false)
+            {
+                _notyf.Error(response.Message);
+                return RedirectToAction("Index", "Role");
+            }
+
+            _notyf.Success(response.Message);
+
+            return RedirectToAction("Index", "Role");
         }
     }
 }

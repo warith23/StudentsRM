@@ -4,10 +4,6 @@
     int count = 1;
 }
 
-<div>
-    <a asp-controller="Student" asp-action="Create" class="btn btn-outline-primary">Register Student</a>
-</div>
-
 @* @await Html.PartialAsync("_ListAlert", Model) *@
 
 @if (Model is not null)
@@ -23,7 +19,6 @@
                 <th scope="col">Gender</th>
                 <th scope="col">Email</th>
                 <th scope="col">HomeAddress</th>
-                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -38,11 +33,6 @@
                     <td>@item.Gender</td>
                     <td>@item.Email</td>
                     <td>@item.HomeAddress</td>
-                    <td>
-                         <div class="btn-group">
-                            <a asp-controller="Student" asp-action="GetStudent" asp-route-id="@item.Id" class="btn btn-primary">View</a>
-                        </div>
-                    </td>
                 </tr>
                 count++;
             }

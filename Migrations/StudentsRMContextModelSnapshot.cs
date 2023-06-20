@@ -24,8 +24,17 @@ namespace StudentsRM.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -49,6 +58,9 @@ namespace StudentsRM.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -68,12 +80,18 @@ namespace StudentsRM.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("MiddleName")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ModifiedBy")
                         .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
@@ -86,7 +104,8 @@ namespace StudentsRM.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
+                    b.HasIndex("CourseId")
+                        .IsUnique();
 
                     b.ToTable("Lecturers");
                 });
@@ -100,8 +119,17 @@ namespace StudentsRM.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RegisteredBy")
                         .IsRequired()
@@ -134,12 +162,21 @@ namespace StudentsRM.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RegisteredBy")
                         .IsRequired()
@@ -159,11 +196,23 @@ namespace StudentsRM.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<bool>("CurrentSemester")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RegisteredBy")
                         .IsRequired()
@@ -186,7 +235,14 @@ namespace StudentsRM.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<string>("CourseId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
                     b.Property<DateTime>("DateAdmitted")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
@@ -208,12 +264,18 @@ namespace StudentsRM.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("MiddleName")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ModifiedBy")
                         .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
@@ -226,36 +288,9 @@ namespace StudentsRM.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("StudentsRM.Entities.StudentCourse", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("CourseId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("RegisteredBy")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("StudentId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("Id");
-
                     b.HasIndex("CourseId");
 
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("StudentsCourses");
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("StudentsRM.Entities.User", b =>
@@ -263,9 +298,8 @@ namespace StudentsRM.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("CheckUserId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -277,6 +311,15 @@ namespace StudentsRM.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("LecturerId")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
@@ -290,9 +333,16 @@ namespace StudentsRM.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
+                    b.Property<string>("StudentId")
+                        .HasColumnType("varchar(255)");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("LecturerId");
+
                     b.HasIndex("RoleId");
+
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Users");
                 });
@@ -300,8 +350,8 @@ namespace StudentsRM.Migrations
             modelBuilder.Entity("StudentsRM.Entities.Lecturer", b =>
                 {
                     b.HasOne("StudentsRM.Entities.Course", "Course")
-                        .WithMany()
-                        .HasForeignKey("CourseId")
+                        .WithOne("Lecturer")
+                        .HasForeignKey("StudentsRM.Entities.Lecturer", "CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -335,34 +385,46 @@ namespace StudentsRM.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("StudentsRM.Entities.StudentCourse", b =>
+            modelBuilder.Entity("StudentsRM.Entities.Student", b =>
                 {
                     b.HasOne("StudentsRM.Entities.Course", "Course")
-                        .WithMany()
+                        .WithMany("Student")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StudentsRM.Entities.Student", "Student")
-                        .WithMany("Courses")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Course");
-
-                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("StudentsRM.Entities.User", b =>
                 {
+                    b.HasOne("StudentsRM.Entities.Lecturer", "Lecturer")
+                        .WithMany()
+                        .HasForeignKey("LecturerId");
+
                     b.HasOne("StudentsRM.Entities.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("StudentsRM.Entities.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId");
+
+                    b.Navigation("Lecturer");
+
                     b.Navigation("Role");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("StudentsRM.Entities.Course", b =>
+                {
+                    b.Navigation("Lecturer")
+                        .IsRequired();
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("StudentsRM.Entities.Role", b =>
@@ -372,8 +434,6 @@ namespace StudentsRM.Migrations
 
             modelBuilder.Entity("StudentsRM.Entities.Student", b =>
                 {
-                    b.Navigation("Courses");
-
                     b.Navigation("Results");
                 });
 #pragma warning restore 612, 618

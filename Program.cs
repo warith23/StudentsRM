@@ -39,6 +39,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<StudentsRMContext>(option =>
     option.UseMySQL(builder.Configuration.GetConnectionString("StudentsRmContext")));
+builder.Services.AddScoped<DbInitializer>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                .AddCookie(config =>
@@ -64,6 +65,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.SeedToDatabase();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseNotyf();

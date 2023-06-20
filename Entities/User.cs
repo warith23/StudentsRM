@@ -12,6 +12,10 @@ namespace StudentsRM.Entities
         public string PasswordHash { get; set; }
         public string RoleId { get; set; }
         public Role Role { get; set; }
-        public string CheckUserId { get; set; }
+        // public string LecturerStudentId { get; set; }
+        public Student? Student { get; set; }
+        public string? StudentId { get; set; }
+        public Lecturer? Lecturer { get; set; }
+        public string? LecturerId { get; set; }
     }
 }

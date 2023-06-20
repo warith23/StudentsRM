@@ -1,6 +1,6 @@
 
 
-namespace StudentsRM.Models.Student
+namespace StudentsRM.Models.Students
 {
     public class StudentResponseModel : BaseResponseModel
     {

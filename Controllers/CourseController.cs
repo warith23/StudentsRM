@@ -2,9 +2,11 @@ using StudentsRM.Models.Course;
 using Microsoft.AspNetCore.Mvc;
 using StudentsRM.Service.Interface;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StudentsRM.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CourseController : Controller
     {
         private readonly ICourseService _courseService;
@@ -34,11 +36,27 @@ namespace StudentsRM.Controllers
             var response = _courseService.Create(request);
             if (response.Status is false)
             {
-                // _notyf.Error(response.Message);
+                _notyf.Error(response.Message);
                 return View();
             }
 
-            // _notyf.Success(response.Message);
+            _notyf.Success(response.Message);
+            return RedirectToAction("Index", "Course");
+        }
+
+         [HttpPost]
+        public IActionResult Delete(string id)
+        {
+            var response = _courseService.Delete(id);
+
+            if (response.Status is false)
+            {
+                _notyf.Error(response.Message);
+                return RedirectToAction("Index", "Course");
+            }
+
+            _notyf.Success(response.Message);
+
             return RedirectToAction("Index", "Course");
         }
     }

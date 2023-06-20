@@ -1,0 +1,29 @@
+@model StudentsRM.Models.Lecturer.LecturerViewModel
+@{
+    ViewData["Title"] = "Lecturer Details";
+}
+
+<h3 class="card-title">
+    @ViewData["Title"]
+</h3>
+
+<div class="card-body">
+
+    @if (Model is not null)
+    {
+        <dl class="row">
+            <dt class="col-sm-4">FullName</dt>
+            <dd class="col-sm-8">@Model.FullName</dd>
+            <dt class="col-sm-4">Email</dt>
+            <dd class="col-sm-8">@Model.Email</dd>
+        </dl>
+
+        <a asp-controller="Lecturer" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary">Update</a>
+
+        <form asp-action="DeleteLecturer" asp-route-id="@Model.Id" class="del-btn">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+        <a asp-controller="Lecturer" asp-action="Index" class="btn btn-secondary">Back to list</a>
+    }
+</div>

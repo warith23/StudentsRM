@@ -4,6 +4,7 @@ using StudentsRM.Service.Interface;
 using StudentsRM.Entities;
 using System.Linq.Expressions;
 using StudentsRM.Models.Semester;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace StudentsRM.Service.Implementation
 {  
@@ -17,14 +18,35 @@ namespace StudentsRM.Service.Implementation
         public BaseResponseModel Create(CreateSemesterViewModel request)
         {
             var response = new BaseResponseModel();
-            //var ifExist = _unitOfWork.Semesters.Exists(s => s.Id == request.)
-
+            var ifExist = _unitOfWork.Semesters.Exists(s => s.SemesterName == request.SemesterName && s.IsDeleted == false);
+            var currentSemester = _unitOfWork.Semesters.Get(s => s.CurrentSemester == true);
+            var currentDate = DateTime.Now;
+            
+            if (currentSemester != null && currentDate >= currentSemester.StartDate && currentDate <= currentSemester.EndDate)
+            {
+                response.Message = "Current Semester is still on";
+                return response;
+            }
+            
+            if (currentSemester != null && !(currentDate >= currentSemester.StartDate && currentDate <= currentSemester.EndDate))
+            {
+                currentSemester.CurrentSemester = false;
+                _unitOfWork.Semesters.Update(currentSemester);
+            }
+            
+            
+            if (ifExist)
+            {
+                response.Message = "Semester already exist ";
+                return response;
+            }
             var semester = new Semester
             {
                 SemesterName = request.SemesterName,
                 StartDate = request.StartDate,
                 EndDate = request.EndDate,
-                RegisteredBy = "Admin"
+                CurrentSemester = true,
+                RegisteredBy = "Admin",
             };
 
             try
@@ -45,7 +67,33 @@ namespace StudentsRM.Service.Implementation
 
         public BaseResponseModel Delete(string semesterId)
         {
-            throw new NotImplementedException();
+            var response = new BaseResponseModel();
+            var ifExist = _unitOfWork.Semesters.Exists(c => c.Id == semesterId && !c.IsDeleted);
+
+            if (!ifExist)
+            {
+                response.Message = "Semester does not exist";
+                response.Status = true;
+                return response;
+            }
+
+            var semester = _unitOfWork.Semesters.Get(semesterId);
+            semester.IsDeleted = true;
+
+            try
+            {
+                _unitOfWork.Semesters.Update(semester);
+                _unitOfWork.SaveChanges();
+                response.Status = true;
+                response.Message = "Semester successfully deleted";
+
+                return response;
+            }
+            catch (System.Exception)
+            {
+                response.Message = "Failed to delete semester at this time";
+                return response;
+            }
         }
 
         public SemestersResponseModel GetAll()

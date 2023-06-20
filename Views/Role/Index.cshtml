@@ -27,6 +27,11 @@
                     <td scope="row">@count</td>
                     <td>@item.RoleName</td>
                     <td>@item.Description</td>
+                     <td>
+                        <form asp-controller="Role" asp-action="DeleteRole" asp-route-id="@item.Id" class="del-btn">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 count++;
             }

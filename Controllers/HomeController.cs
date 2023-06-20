@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using StudentsRM.Models.User;
 
 namespace StudentsRM.Controllers;
 
@@ -14,13 +15,14 @@ public class HomeController : Controller
 {
     private readonly IUserService _userService;
     private readonly INotyfService _notyf;
-
+    
     public HomeController(IUserService userService, INotyfService notyf)
     {
         _userService = userService;
         _notyf = notyf;
     }
-
+    
+    [Authorize]
     public IActionResult Index()
     {
         return View();
@@ -63,9 +65,14 @@ public class HomeController : Controller
 
         _notyf.Success(response.Message);
 
-        if (user.RoleName == "Admin")
+        // if (user.RoleName == "Admin")
+        // {
+        //     return RedirectToAction("AdminDashboard", "Home");
+        // }
+
+        if (user.RoleName == "Student")
         {
-            return RedirectToAction("AdminDashboard", "Home");
+            return RedirectToAction("GetStudent", "Student", response.Data.CheckUserId);
         }
 
         return RedirectToAction("Index", "Home");
@@ -75,11 +82,36 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult LogOut()
+    {
+        HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        _notyf.Success("You have successfully signed out!");
+        return RedirectToAction("Login", "Home");
+    }
     
     [Authorize(Roles = "Admin")]
     public IActionResult AdminDashboard()
     {
         return View();
+    }
+
+    public IActionResult UpdatePassword()
+    {
+        return View();
+    }
+    [HttpPost]
+    public IActionResult UpdatePassword(UpdateUserViewModel request)
+    {
+        var response = _userService.UpdatePassword(request);
+        if (response.Status is false)
+            {
+                _notyf.Error(response.Message);
+                return View();
+            }
+
+            _notyf.Success(response.Message);
+            return RedirectToAction("Index", "Home");
     }
 
 }

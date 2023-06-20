@@ -8,5 +8,8 @@ namespace StudentsRM.Entities
     public class Course : BaseEntity
     {
         public string Name { get; set; }
+        public List<Lecturer> Lecturer { get; set; }
+        public List<Student> Student { get; set; }
+        
     }
 }

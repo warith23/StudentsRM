@@ -1,0 +1,22 @@
+@model StudentsRM.Models.Results.AddResultViewModel
+@{
+    ViewData["Title"] = "Add Results";
+}
+
+<div class="body">
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">                
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Score:</label>
+                    <input type="text" class="form-control" placeholder="Enter Score for" asp-for="Score">
+                    <span asp-validation-for="Score" class="text-danger"></span>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary"> Add Result for student</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

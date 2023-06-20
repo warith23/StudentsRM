@@ -5,10 +5,10 @@ namespace StudentsRM.Service.Interface
 {
     public interface IResultService
     {
-        BaseResponseModel Create(AddResultViewModel request, string courseId, List<string> studentId);
+        public BaseResponseModel Create(AddResultViewModel request,string lecturerId);
         BaseResponseModel Update(string resultId, UpdateResultViewModel update);
         BaseResponseModel Delete(string resultId);
-        ResultResponseModel GetResult(string resultId);
+        ResultResponseModel CheckStudentResult();
         ResultsResponseModel GetAll();
     }
 }

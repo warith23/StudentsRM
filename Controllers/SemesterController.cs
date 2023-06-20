@@ -1,17 +1,21 @@
+using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudentsRM.Models.Semester;
 using StudentsRM.Service.Interface;
 
 namespace StudentsRM.Controllers
 {
-    // [Route("[controller]")]
+    [Authorize(Roles = "Admin")]
     public class SemesterController : Controller
     {
         private readonly ISemesterService _semesterService;
+        private readonly INotyfService _notyf;
 
-        public SemesterController(ISemesterService semesterService)
+        public SemesterController(ISemesterService semesterService, INotyfService notyf)
         {
             _semesterService = semesterService;
+            _notyf = notyf;
         }
 
         public IActionResult Index()
@@ -34,19 +38,29 @@ namespace StudentsRM.Controllers
             var response = _semesterService.Create(reqeust);
             if (response.Status is false)
             {
-                //_notyf.Error(response.Message);
-                ViewData["Message"] = response.Message;
+                _notyf.Error(response.Message);
                 return View();
             }
 
-            ViewData["Message"] = response.Message;
+            _notyf.Success(response.Message);
             return RedirectToAction("Index", "Semester"); ;
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        
+        [HttpPost]
+        public IActionResult DeleteSemester(string id)
         {
-            return View("Error!");
+            var response = _semesterService.Delete(id);
+
+            if (response.Status is false)
+            {
+                _notyf.Error(response.Message);
+                return RedirectToAction("Index", "Semester");
+            }
+
+            _notyf.Success(response.Message);
+
+            return RedirectToAction("Index", "Semester");
         }
     }
 }

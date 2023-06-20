@@ -17,7 +17,7 @@ namespace StudentsRM.Service.Implementation
         public BaseResponseModel Create(CreateRoleModel request)
         {
             var response = new BaseResponseModel();
-            var ifExist = _unitOfWork.Roles.Exists(c => c.RoleName == request.RoleName);
+            var ifExist = _unitOfWork.Roles.Exists(r => r.RoleName == request.RoleName && r.IsDeleted == false);
 
             if (ifExist)
             {
@@ -29,8 +29,8 @@ namespace StudentsRM.Service.Implementation
             {
                 RoleName = request.RoleName,
                 Description = request.Description,
-                // DateCreated = DateTime.Now,
-                RegisteredBy = "Admin"
+                DateCreated = DateTime.Now,
+                RegisteredBy = "Admin",
             };
 
             try
@@ -62,7 +62,7 @@ namespace StudentsRM.Service.Implementation
 
             var role = _unitOfWork.Roles.Get(RoleId);
             role.IsDeleted = true;
-
+            // mam
             try
             {
                 _unitOfWork.Roles.Update(role);

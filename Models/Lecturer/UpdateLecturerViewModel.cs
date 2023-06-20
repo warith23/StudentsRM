@@ -12,5 +12,6 @@ namespace StudentsRM.Models.Lecturer
         public string HomeAddress { get; set; }
         public string PhoneNumber { get; set; }
         public string Course { get; set; }
+        public string CourseId { get; set; }
     }
 }

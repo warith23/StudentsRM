@@ -1,0 +1,26 @@
+@model StudentsRM.Models.Results.ResultViewModel
+@{
+    ViewData["Title"] = "My Result";
+}
+
+<h3 class="card-title">
+    @ViewData["Title"]
+</h3>
+
+<div class="card-body">
+
+    @if (Model is not null)
+    {
+        <dl class="row">
+            <dt class="col-sm-4">Name</dt>
+            <dd class="col-sm-8">@Model.StudentName</dd>
+            <dt class="col-sm-4">Course</dt>
+            <dd class="col-sm-8">@Model.CourseName</dd>
+            <dt class="col-sm-4">Semester</dt>
+            <dd class="col-sm-8">@Model.SemesterName</dd>
+            <dt class="col-sm-4">Score</dt>
+            <dd class="col-sm-8">@Model.Score</dd>
+        </dl>
+        <a asp-controller="Lecturer" asp-action="Index" class="btn btn-secondary">Back to list</a>
+    }
+</div>

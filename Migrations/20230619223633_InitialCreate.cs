@@ -19,6 +19,9 @@ namespace StudentsRM.Migrations
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: false),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "longtext", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -35,6 +38,9 @@ namespace StudentsRM.Migrations
                     RoleName = table.Column<string>(type: "longtext", nullable: false),
                     Description = table.Column<string>(type: "longtext", nullable: false),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "longtext", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -51,34 +57,16 @@ namespace StudentsRM.Migrations
                     SemesterName = table.Column<string>(type: "longtext", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    CurrentSemester = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "longtext", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Semesters", x => x.Id);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Students",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
-                    FirstName = table.Column<string>(type: "longtext", nullable: false),
-                    MiddleName = table.Column<string>(type: "longtext", nullable: false),
-                    LastName = table.Column<string>(type: "longtext", nullable: false),
-                    Email = table.Column<string>(type: "longtext", nullable: false),
-                    Gender = table.Column<string>(type: "longtext", nullable: false),
-                    HomeAddress = table.Column<string>(type: "longtext", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "longtext", nullable: false),
-                    DateAdmitted = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Students", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -96,6 +84,9 @@ namespace StudentsRM.Migrations
                     PhoneNumber = table.Column<string>(type: "longtext", nullable: false),
                     CourseId = table.Column<string>(type: "varchar(255)", nullable: false),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "longtext", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -111,25 +102,32 @@ namespace StudentsRM.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "Students",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    FirstName = table.Column<string>(type: "longtext", nullable: false),
+                    MiddleName = table.Column<string>(type: "longtext", nullable: false),
+                    LastName = table.Column<string>(type: "longtext", nullable: false),
                     Email = table.Column<string>(type: "longtext", nullable: false),
-                    HashSalt = table.Column<string>(type: "longtext", nullable: false),
-                    PasswordHash = table.Column<string>(type: "longtext", nullable: false),
-                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    CheckUserId = table.Column<string>(type: "longtext", nullable: false),
+                    Gender = table.Column<string>(type: "longtext", nullable: false),
+                    HomeAddress = table.Column<string>(type: "longtext", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "longtext", nullable: false),
+                    DateAdmitted = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    CourseId = table.Column<string>(type: "varchar(255)", nullable: false),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "longtext", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_Students", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_Roles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "Roles",
+                        name: "FK_Students_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -145,6 +143,9 @@ namespace StudentsRM.Migrations
                     SemesterId = table.Column<string>(type: "varchar(255)", nullable: false),
                     CourseId = table.Column<string>(type: "varchar(255)", nullable: false),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "longtext", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
@@ -172,37 +173,49 @@ namespace StudentsRM.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "StudentsCourses",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
-                    CourseId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    StudentId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Email = table.Column<string>(type: "longtext", nullable: false),
+                    HashSalt = table.Column<string>(type: "longtext", nullable: false),
+                    PasswordHash = table.Column<string>(type: "longtext", nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    StudentId = table.Column<string>(type: "varchar(255)", nullable: true),
+                    LecturerId = table.Column<string>(type: "varchar(255)", nullable: true),
                     RegisteredBy = table.Column<string>(type: "longtext", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "longtext", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastModified = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StudentsCourses", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StudentsCourses_Courses_CourseId",
-                        column: x => x.CourseId,
-                        principalTable: "Courses",
+                        name: "FK_Users_Lecturers_LecturerId",
+                        column: x => x.LecturerId,
+                        principalTable: "Lecturers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Users_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_StudentsCourses_Students_StudentId",
+                        name: "FK_Users_Students_StudentId",
                         column: x => x.StudentId,
                         principalTable: "Students",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Lecturers_CourseId",
                 table: "Lecturers",
-                column: "CourseId");
+                column: "CourseId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Results_CourseId",
@@ -220,31 +233,30 @@ namespace StudentsRM.Migrations
                 column: "StudentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StudentsCourses_CourseId",
-                table: "StudentsCourses",
+                name: "IX_Students_CourseId",
+                table: "Students",
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StudentsCourses_StudentId",
-                table: "StudentsCourses",
-                column: "StudentId");
+                name: "IX_Users_LecturerId",
+                table: "Users",
+                column: "LecturerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
                 table: "Users",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_StudentId",
+                table: "Users",
+                column: "StudentId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Lecturers");
-
-            migrationBuilder.DropTable(
                 name: "Results");
-
-            migrationBuilder.DropTable(
-                name: "StudentsCourses");
 
             migrationBuilder.DropTable(
                 name: "Users");
@@ -253,13 +265,16 @@ namespace StudentsRM.Migrations
                 name: "Semesters");
 
             migrationBuilder.DropTable(
-                name: "Courses");
+                name: "Lecturers");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Students");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Courses");
         }
     }
 }

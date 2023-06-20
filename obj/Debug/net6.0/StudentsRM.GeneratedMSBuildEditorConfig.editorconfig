@@ -8,81 +8,117 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StudentsRM
 build_property.RootNamespace = StudentsRM
-build_property.ProjectDir = C:\Users\Ismail\Desktop\StudentsRM\
+build_property.ProjectDir = c:\Users\Ismail\Desktop\StudentsRM\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Ismail\Desktop\StudentsRM
+build_property.MSBuildProjectDirectory = c:\Users\Ismail\Desktop\StudentsRM
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Course/Create.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Course/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Course/Index.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Course/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Home/Index.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Home/Login.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Home/Privacy.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Lecturer/Create.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Home/UpdatePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVcGRhdGVQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Lecturer/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Lecturer/Index.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Lecturer/GetLecturer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcR2V0TGVjdHVyZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Lecturer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Role/Create.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Lecturer/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Result/CheckResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdWx0XENoZWNrUmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Result/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdWx0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Role/Index.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Semester/Create.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Semester/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VtZXN0ZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Semester/Index.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Semester/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VtZXN0ZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Shared/Error.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Student/Create.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Student/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Student/Index.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Student/GetLecturerStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRMZWN0dXJlclN0dWRlbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Student/GetStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRTdHVkZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Student/GetStudentsForResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRTdHVkZW50c0ZvclJlc3VsdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/_ViewImports.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Student/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Ismail/Desktop/StudentsRM/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/_ViewStart.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ismail/Desktop/StudentsRM/Views/Shared/_Layout.cshtml]
+[c:/Users/Ismail/Desktop/StudentsRM/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-cm5wtuhtyc

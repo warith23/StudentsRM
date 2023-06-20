@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace StudentsRM.Entities
 {
     public class Student : BaseEntity
@@ -15,7 +10,8 @@ namespace StudentsRM.Entities
         public string HomeAddress { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime DateAdmitted { get; set; }
-        public ICollection<StudentCourse> Courses { get; set; } = new HashSet<StudentCourse>();
+        public string CourseId { get; set; }
+        public Course Course { get; set; }
         public ICollection<Result> Results { get; set; } = new HashSet<Result>();
     }
 }

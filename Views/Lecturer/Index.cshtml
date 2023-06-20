@@ -22,7 +22,6 @@
                 <th scope="col">Course</th>
                 <th scope="col">Gender</th>
                 <th scope="col">Email</th>
-                <th scope="col">HomeAddress</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +35,11 @@
                     <td>@item.Course</td>
                     <td>@item.Gender</td>
                     <td>@item.Email</td>
-                    <td>@item.HomeAddress</td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-controller="Lecturer" asp-action="GetLecturer" asp-route-id="@item.Id" class="btn btn-primary">View</a>
+                        </div>
+                    </td>
                 </tr>
                 count++;
             }

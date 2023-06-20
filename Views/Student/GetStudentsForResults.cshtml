@@ -1,12 +1,8 @@
-@model List<StudentsRM.Models.Course.CourseViewModel>
+@model List<StudentsRM.Models.Students.StudentViewModel>
 @{
-    ViewData["Title"] = "Course List";
+    ViewData["Title"] = "Student List";
     int count = 1;
 }
-
-<div>
-    <a asp-controller="Course" asp-action="Create" class="btn btn-outline-primary">Register New Course</a>
-</div>
 
 @* @await Html.PartialAsync("_ListAlert", Model) *@
 
@@ -15,7 +11,7 @@
     <table class="table" >
         <thead>
             <tr>
-                <th scope="col">S/N</th> 
+                <th scope="col">S/N</th>
                 <th scope="col">Name</th>
                 <th scope="col">Action</th>
             </tr>
@@ -25,11 +21,11 @@
             {
                 <tr>
                     <td scope="row">@count</td>
-                    <td>@item.Name</td>
+                    <td>@item.FullName</td>
                     <td>
-                        <form asp-controller="Course" asp-action="Delete" asp-route-id="@item.Id" class="del-btn">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                         <div class="btn-group">
+                            <a asp-controller="Result" asp-action="Create" asp-route-id="@item.Id" class="btn btn-primary">Add Result</a>
+                        </div>
                     </td>
                 </tr>
                 count++;
